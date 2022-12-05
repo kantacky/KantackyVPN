@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  softether-server:
+    image: siomiz/softethervpn:ubuntu
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 500:500/udp
+      - 4500:4500/udp
+      - 1701:1701/tcp
+      - 5555:5555/tcp
+    volumes:
+      - ./logs/server:/usr/vpnserver/server_log
+      - ./logs/packet:/usr/vpnserver/packet_log
+      - ./logs/security:/usr/vpnserver/security_log
+    env_file:
+      - ../.env
+    environment:
+      - VPNCMD_HUB=SecureNatDisable
