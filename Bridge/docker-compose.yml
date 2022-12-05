@@ -3,16 +3,5 @@ version: "3"
 services:
   softether-bridge:
     image: sammrai/softether-bridge
-    cap_add:
-      - NET_ADMIN
-    ports:
-      - 500:500/udp
-      - 4500:4500/udp
-      - 1701:1701/tcp
-      - 5555:5555/tcp
-    volumes:
-      - ./log/server:/usr/vpnserver/server_log
-      - ./log/packet:/usr/vpnserver/packet_log
-      - ./log/security:/usr/vpnserver/security_log
     env_file:
       - ../.env
