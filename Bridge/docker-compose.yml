@@ -2,7 +2,7 @@ version: "3"
 
 services:
   softether-bridge:
-    image: sammrai/softether-bridge:ubuntu
+    image: sammrai/softether-bridge
     cap_add:
       - NET_ADMIN
     ports:
