@@ -6,9 +6,11 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
+      - 443:443/tcp
       - 500:500/udp
-      - 4500:4500/udp
+      - 1194:1194/udp
       - 1701:1701/tcp
+      - 4500:4500/udp
       - 5555:5555/tcp
     volumes:
       - ./logs/server:/usr/vpnserver/server_log
@@ -16,5 +18,3 @@ services:
       - ./logs/security:/usr/vpnserver/security_log
     env_file:
       - ../.env
-    environment:
-      - VPNCMD_HUB=SecureNatDisable
